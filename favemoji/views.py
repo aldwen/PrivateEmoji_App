@@ -9,4 +9,9 @@ def homeproc(request):
     
 def favemoji(request):
     response=HttpResponse('进入APP')
+    """ 
+    显示一个页面，分左右区。左边是已经选定的Emoji区。右边是所有的Emoji区。
+    左区再分上下。上区，显示，下区用于编辑。以及输出。
+    
+    """
     return response
