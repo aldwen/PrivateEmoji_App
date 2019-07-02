@@ -1,19 +1,20 @@
+import time
+# from django.views import generic
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import EmojiInfo
+
 
 # Create your views here.
-def homeproc(request):
-    response=HttpResponse(' 这里是首页，等待完善')
-    
-    return response
-    
 
-def favemoji(request):
-    """ 
-    显示一个页面，分左右区。左边是已经选定的Emoji区。右边是所有的Emoji区。
-    左区再分上下。上区，显示，下区用于编辑。以及输出。
-    
-    """
-    
-    response=HttpResponse('进入APP')
-    return response
+# class IndexView(generic.ListView):
+# 哪个通用视图合适呢？我想不好，还是继续用自己的自定义函数
+
+
+def index(request):
+    # 只有一个字符串的首页，第一版out
+    # response=HttpResponse('FavEmoji 的首页')
+    # return response
+    allemojis = EmojiInfo.objects.all()
+    ctime = time.strftime("%Y{y}%m{m}%d{d}%H{h}%M{m1}%S{s}").format(y='年', m='月', d='日', h="时", m1="分", s="秒")
+    context = {'emojilist': allemojis, 'current_time': ctime}
+    return render(request, 'favemoji/2col.html', context)

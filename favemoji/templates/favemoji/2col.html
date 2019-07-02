@@ -9,10 +9,12 @@
         <div class="container">
             <div class="sidebar">左侧</div>
             <div class="main" id="main">
-                {% for item in list_emoji %}
-                    item.
-
+                右侧<br>
+                {% for item in emojilist %}
+                    {{item.infoEmoji}}
                 {% endfor %}
+                
+                页面执行时间是：{{ current_time }}
 
             </div>
         </div>
