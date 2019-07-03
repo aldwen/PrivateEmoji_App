@@ -7,15 +7,20 @@
     </head>
     <body>
         <div class="container">
-            <div class="sidebar" id="left" style="float:left; width:20%; margin:3px; background: lightblue">左侧</div>
+            <div class="sidebar" id="left" style="float:left; width:20%; margin:3px; background: lightblue">
+                <ul>
+                {% for item in allfavemojis %}
+                    <li>
+                        {{ item.infoEmoji}} | {{ item.info输入串}}
+                    </li>    
+                {% endfor %}
+                </ul>
+            </div>
             <div class="main" id="main" style="float:right; width:79%; margin:3px; background: lightpink">
                 右侧<br>
-                {% for item in emojilist %}
+                {% for item in allemojis %}
                     {{item.infoEmoji}}
                 {% endfor %}
-                
-                
-
             </div>
         </div>
         <div class="footer" style="float:left; width:100%; margin:3px; background:mediumpurple">页面执行时间是：{{ current_time }}</div>

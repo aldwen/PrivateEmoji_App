@@ -14,15 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include,path
-from favemoji import views as emojiviews
+from django.urls import include, path
 from . import views as topviews
 
 
 urlpatterns = [
-    #path('', topviews.homeproc, name='topindex'),
-    # 默认app 也可以产生views , 只不过模式要求只想到另外的工作APP 
-    path('', emojiviews.index, name='index'),
-    path('favemoji/',include('favemoji.urls')),
+    # path('', topviews.homeproc, name='topindex'),
+    # 默认app 也可以产生views , 只不过模式要求只想到另外的工作APP
+    path('', topviews.homeindex, name='index'),
+    path('favemoji/', include('favemoji.urls')),
     path('admin/', admin.site.urls),
 ]
