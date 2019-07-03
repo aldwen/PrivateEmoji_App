@@ -9,10 +9,15 @@
         <div class="container">
             <div class="sidebar" id="left" style="float:left; width:20%; margin:3px; background: lightblue">左侧</div>
             <div class="main" id="main" style="float:right; width:79%; margin:3px; background: lightpink">
-                右侧<br>
-                {% for item in emojilist %}
-                    {{item.infoEmoji}}
-                {% endfor %}
+                    {% if all_list %}
+                    <ul>
+                    {% for emo in all_list %}
+                        <li><a href="#">{{ emo.infoEmoji }} |{{emo.infoUnicode}}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No polls are available.</p>
+                {% endif %}
                 
                 
 
@@ -21,3 +26,4 @@
         <div class="footer" style="float:left; width:100%; margin:3px; background:mediumpurple">页面执行时间是：{{ current_time }}</div>
     </body>
 </html>
+
